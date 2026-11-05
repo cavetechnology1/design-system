@@ -42,7 +42,7 @@ Cave UI brings design tokens, reusable Web styles and JavaScript helpers, native
 
 ## Get started
 
-**Website candidate: `v2.1.0-beta.1`; UI packages remain alpha.** Registry publication is paused. Package version `0.1.0-alpha.1` is not published to npm or pub.dev. Use locally built archives or an available archive from the [documentation downloads](https://design.cave.technology/downloads). See the package instructions before installation:
+**Website beta: [`v2.1.0-beta.1`](https://github.com/Shmaisanymostafa/design-system/releases/tag/v2.1.0-beta.1); UI packages remain alpha.** Registry publication is paused. Package version `0.1.0-alpha.1` is not published to npm or pub.dev. Use locally built archives or an available archive from the [documentation downloads](https://design.cave.technology/downloads). See the package instructions before installation:
 
 | Package | Purpose | Installation and examples |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ npm ci
 npm test
 npm run test:types
 npm run build
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run test:browser:all
 npm run test:navigation
 npm run test:templates
@@ -125,7 +125,7 @@ The npm packages are marked `private: true`; Flutter uses `publish_to: none`. Re
 
 The checked-in CI workflow validates both platforms and has no package publication, release upload or hosting deployment steps. It is disabled at the time of this documentation review; this change does not enable it.
 
-The Firebase project and Hosting site are `cave-design-system`, with `dist/` as the hosted directory and `design.cave.technology` as the custom domain. The beta deployment is held until the exact candidate has been reported to the owner in advance. See [release procedure](docs/RELEASING.md) and [current status](docs/STATUS.md). Local templates and archives do not establish what revision is deployed.
+The Firebase project and Hosting site are `cave-design-system`, with `dist/` as the hosted directory and `design.cave.technology` as the custom domain. The approved beta is deployed at the custom domain. The matching GitHub tag identifies the tested source; see the recorded Hosting version and asset verification. See [release procedure](docs/RELEASING.md) and [current status](docs/STATUS.md). Local templates and archives do not establish what revision is deployed.
 
 </details>
 

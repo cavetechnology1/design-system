@@ -1,6 +1,6 @@
 # Website beta validation — 2026-11-05
 
-Candidate: website `v2.1.0-beta.1`; UI package versions remain `0.1.0-alpha.1`. No deployment or public beta publication has occurred as part of this preparation.
+Released website beta `v2.1.0-beta.1`; UI package versions remain `0.1.0-alpha.1`. The predeployment checks below cover source `0e3b490c71b21c6e08a560aada5dfb6a1cf3e33b`; the postdeployment record follows.
 
 - `npm ci`: locked dependencies installed; audit reported zero vulnerabilities.
 - `npm test`: 24 passed, covering source generation, links/assets, semantic colour contrast, packages, locale/theme state, query escaping, templates and Plex font originals/weights/licences.
@@ -20,8 +20,22 @@ Ran Brand's `scripts/sync-from-design.mjs --check` with `CAVE_DESIGN_DIR` pointi
 
 The original Brand checkout remains untouched. An isolated copy was synchronized; its drift check passes. A Chromium comparison of both copies across English/Arabic, Light/Dark/Black and 320/1440px confirmed identical computed body, heading and brand typography/colours in all 12 states (`.artifacts/brand-compatibility.json`). This does not update or deploy the Brand repository. A future Brand maintenance change can refresh its copied tokens without changing its effective Plex appearance.
 
-## Remaining review and operational hold
+## Remaining review and boundaries
 
-Human VoiceOver/NVDA/TalkBack sessions, physical-device checks, native Safari review of this candidate and a separate declared-minimum Flutter SDK run remain outstanding. CSS zoom and WebKit automation are distinct from those checks. The standalone template examples have no backend or authentication.
+Human VoiceOver/NVDA/TalkBack sessions, physical-device checks, broader native Safari coverage and a separate declared-minimum Flutter SDK run remain outstanding. CSS zoom and WebKit automation are distinct from those checks. The standalone template examples have no backend or authentication.
 
-The GitHub workflow remains `disabled_manually`; its file was not modified. No IAM, security setting, billing setting or ownership was changed. No registry publication occurred. Firebase project/site `cave-design-system`, custom domain `design.cave.technology`, remains on the previously recorded live release until advance owner notice of this exact candidate is confirmed.
+The GitHub workflow remains `disabled_manually`; its file was not modified. No IAM, security setting, billing setting or ownership was changed. No registry publication occurred. Firebase project/site `cave-design-system`, custom domain `design.cave.technology`, now serves the approved beta recorded below.
+
+## Published deployment verification
+
+After advance owner notice, the owner explicitly replied “proceed.” The exact reviewed candidate was deployed with `firebase deploy --only hosting --project cave-design-system`; no source rebuild or Hosting setting change was introduced for rollout.
+
+- Hosting version: `2ba2edcb4f4b4cca`, released **2026-11-05 18:17:53.493 UTC**.
+- GitHub prerelease: [v2.1.0-beta.1](https://github.com/Shmaisanymostafa/design-system/releases/tag/v2.1.0-beta.1), published **18:34:16 UTC**; tag and target both resolve to `0e3b490c71b21c6e08a560aada5dfb6a1cf3e33b`.
+- Website ZIP SHA-256: `46d82875f1d9689b3d799d95dd2d107dae8e1d00fef324242beea5e5112ace6f`. All three GitHub asset digests match the reviewed local artifacts.
+- Fetched and hashed **all 230 served candidate files** at canonical live routes; every decoded response matches the reviewed SHA-256 manifest. The bundle also contains `.last_build_id`, intentionally excluded by the existing `**/.*` Hosting ignore rule. Firebase's version inventory contains the 230 files plus its standard `/__/firebase/init.js` and `/__/firebase/init.json`; no unexpected application file was added. Local evidence: `.artifacts/live-files.json` and `.artifacts/hosting-version-files.json`.
+- Live Chromium/Firefox/WebKit: **36** language/viewport/theme combinations passed font loading, reflow and header/navigation axe scans. Keyboard menu opening/Escape, theme persistence, canonical URLs and download links passed. Evidence: `.artifacts/live-navigation/`.
+- The actual deployed Flutter gallery completed native Arabic/English button actions and Arabic settings rendering in all three engines. Cold resource transfer was slow during concurrent full-file verification, causing early Firefox timeouts; the traced repeat passed. WebKit completed interactions but logged an access-control-style font-fetch error when an old iframe's pending fallback request was cancelled during a quick language change. A repeat that let each gallery load settle before switching languages passed with no page errors or missing responses. These observations are retained as beta limitations; no security/CORS setting was changed to suppress them.
+- Native Safari **26.6.2**: live Arabic menus inspected at 320/390px in Responsive Design Mode; English at 320px. Menu opacity, readable joined text, compact header, Escape focus restoration and language switching were checked. This is emulation and a focused manual spot check, not a physical-device or screen-reader session.
+
+CI remained `disabled_manually`; package publication, IAM, security, billing and ownership were unchanged. Documentation updates after rollout record the result without moving the release tag or replacing its artifacts.
