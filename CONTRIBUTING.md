@@ -11,6 +11,17 @@ Do not sync over this repository from an AI artifact or edit generated outputs.
    and using keyboard, pointer and full-label clicks.
 6. Describe behavioural changes and compatibility implications in the changelog.
 
+For documentation navigation or typography, also run `npm run test:navigation`
+and `npm run test:browser:all`. Check the no-script fallback, 320px and short
+screens, both reading directions, keyboard focus and all appearance choices.
+Use `npm run test:templates` after changing assets copied into standalone ZIPs.
+Run `npm run preview:readme` when the component preview or fonts change.
+
+Plex font provenance is recorded in [docs/BRAND-SOURCES.md](docs/BRAND-SOURCES.md).
+Keep licences and font aliases together; edit the canonical generator for Flutter
+gallery changes, then regenerate its tracked examples. Website beta releases are
+separate from alpha package versions; follow [docs/RELEASING.md](docs/RELEASING.md).
+
 Keep package runtime dependencies minimal. Core web must remain dependency-free.
 Do not include Cave logos, proprietary fonts or product-specific rules in packages.
 Code contributions are under the package MIT licence. Font files retain their own

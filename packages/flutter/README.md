@@ -39,8 +39,8 @@ CaveSwitch, CaveCard, CaveNavigation and showCaveDialog provide the initial wrap
 Only Flutter and Flutter's localization SDK are direct runtime dependencies.
 The SDK localization package has transitive dependencies, including intl; this
 is not a claim of zero total dependencies. No third-party state management,
-network font loading or icon packages are required. The host may bundle Poppins
-and Almarai and pass `fontFamily` and `arabicFontFamily` to CaveApp.
+network font loading or icon packages are required. The host may bundle IBM Plex Sans
+and IBM Plex Sans Arabic and pass `fontFamily` and `arabicFontFamily` to CaveApp.
 
 All 15 documented component examples exist in English and Arabic under
 `example/lib/`. From that folder run `flutter pub get`, then use a generated app

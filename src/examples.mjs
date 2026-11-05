@@ -18,7 +18,7 @@ export function codeExamples(component,lang) {
 }
 export function installContent(lang,version) {
  const ar=lang==='ar';
- return `<div class="cv-banner note">${ar?'نسخة عمل غير منشورة. الأرشيفات أدناه للتقييم المحلي والنشر متوقف حاليًا.':'Unreleased working copy. Archives below are for local evaluation; publication is paused.'}</div>
+ return `<div class="cv-banner note">${ar?'حزم ألفا للتقييم. النشر على npm وpub.dev متوقف، وتُتابع إصدارات الموقع بشكل منفصل.':'Alpha evaluation packages. npm and pub.dev publication is paused; website releases are tracked separately.'}</div>
  <div data-platform="web"><h2>${ar?'تثبيت حزمة الويب':'Install the web package'}</h2>
  <p><a href="/downloads/cave-ui-core-${version}.tgz" download>@cave-ui/core ${version}</a> · <a href="/downloads/cave-ui-tokens-${version}.tgz" download>@cave-ui/tokens ${version}</a></p>
  <pre dir="ltr"><code>npm install ./cave-ui-core-${version}.tgz</code></pre>

@@ -46,7 +46,7 @@ export const STR = {
       sectionsTitle: 'Where to start',
       sections: {
         colour: 'Palette, themes and the contrast of every text pair.',
-        typography: 'Optional Poppins and Almarai fonts, with accessible fallbacks.',
+        typography: 'Optional IBM Plex Sans and IBM Plex Sans Arabic fonts, with accessible fallbacks.',
         layout: 'Spacing, radius, shadow, motion and layers.',
         components: 'Buttons, fields, tables, dialogs and more, live in every theme.',
         brand: 'The Cave logo, colours, fonts and the rules for using them. It lives on its own site.',
@@ -75,7 +75,7 @@ export const STR = {
     },
     type: {
       title: 'Typography',
-      lead: 'Poppins for English and Almarai for Arabic, with system-font fallbacks.',
+      lead: 'IBM Plex Sans for English and IBM Plex Sans Arabic for Arabic, with system-font fallbacks.',
       familiesTitle: 'Families',
       scaleTitle: 'Type scale',
       scaleLead: 'Each style is shown in its own face. Arabic styles are set right to left.',
@@ -206,7 +206,7 @@ export const STR = {
       sectionsTitle: 'من أين تبدأ',
       sections: {
         colour: 'اللوحة اللونية والمظاهر وتباين كل زوج من النص والخلفية.',
-        typography: 'الخطوط الاختيارية Poppins وAlmarai مع بدائل النظام.',
+        typography: 'الخطوط الاختيارية IBM Plex Sans وIBM Plex Sans Arabic مع بدائل النظام.',
         layout: 'المسافات والزوايا والظلال والحركة والطبقات.',
         components: 'الأزرار والحقول والجداول والنوافذ وغيرها، حيّة في كل مظهر.',
         brand: 'شعار كهف وألوانه وخطوطه وقواعد استخدامها. له موقعه الخاص.',
@@ -235,7 +235,7 @@ export const STR = {
     },
     type: {
       title: 'الخطوط',
-      lead: 'Poppins للإنجليزية وAlmarai للعربية مع بدائل من خطوط النظام.',
+      lead: 'IBM Plex Sans للإنجليزية وIBM Plex Sans Arabic للعربية مع بدائل من خطوط النظام.',
       familiesTitle: 'العائلات',
       scaleTitle: 'سلّم الخطوط',
       scaleLead: 'يظهر كل نمط بخطّه. تُكتب الأنماط العربية من اليمين إلى اليسار.',

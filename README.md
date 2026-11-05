@@ -7,7 +7,7 @@
 
 <h1 align="center">Cave UI</h1>
 
-<p align="center"><strong>Shared design foundations for English and Arabic, on Web and Flutter.</strong></p>
+<p align="center"><strong>Shared design foundations for English and Arabic, on Web and Flutter. Built with IBM Plex.</strong></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Web_%2B_Flutter-047283?style=flat-square" alt="Web and Flutter">
@@ -28,6 +28,8 @@ Cave UI brings design tokens, reusable Web styles and JavaScript helpers, native
 
 <sub>Web component specimens rendered from committed source; this is a documentation composition, not a product screenshot or Flutter rendering. [Artwork provenance](docs/readme-assets/NOTICE.md).</sub>
 
+<p dir="rtl" lang="ar">أسس تصميم مشتركة للعربية والإنجليزية على الويب وFlutter، بخطوط IBM Plex ودعم اتجاه القراءة والمظاهر.</p>
+
 ## Foundations
 
 | Foundation | In this repository |
@@ -40,7 +42,7 @@ Cave UI brings design tokens, reusable Web styles and JavaScript helpers, native
 
 ## Get started
 
-**Alpha: registry publication and new releases are paused.** Package version `0.1.0-alpha.1` is not published to npm or pub.dev. Use locally built archives or an available archive from the [documentation downloads](https://design.cave.technology/downloads). See the package instructions before installation:
+**Website candidate: `v2.1.0-beta.1`; UI packages remain alpha.** Registry publication is paused. Package version `0.1.0-alpha.1` is not published to npm or pub.dev. Use locally built archives or an available archive from the [documentation downloads](https://design.cave.technology/downloads). See the package instructions before installation:
 
 | Package | Purpose | Installation and examples |
 | --- | --- | --- |
@@ -88,7 +90,7 @@ Cave logos, icons, patterns and proprietary fonts are excluded from packages. Th
 
 ### Build and validate locally
 
-Requires Node 20+ and Flutter 3.35+. The existing repository notes validation with Flutter 3.47.6. These are contributor commands, not checks performed by this README review.
+Requires Node 20+ and Flutter 3.35+. The existing repository notes validation with Flutter 3.47.6. See [current validation](docs/VALIDATION.md) for the checks performed on this candidate.
 
 ```sh
 npm ci
@@ -96,7 +98,9 @@ npm test
 npm run test:types
 npm run build
 npx playwright install chromium
-npm run test:browser
+npm run test:browser:all
+npm run test:navigation
+npm run test:templates
 cd packages/flutter
 flutter pub get
 flutter analyze
@@ -113,15 +117,15 @@ Git is authoritative. Edit canonical sources and rebuild generated outputs; do n
 
 The navbar separates documentation language, Web/Flutter and appearance. `?platform=flutter` makes the platform shareable and preserves it across navigation. Preview language is independent of documentation language. Theme changes update previews. Flutter panels provide Dart source; the on-demand gallery runs actual Flutter Web widgets.
 
-Browser checks use local servers. When a sibling brand checkout is present, they also check full-label theme switching in both languages. Set `CAVE_BROWSER_PATH` only for a non-default Chromium executable.
+The compact menu at 1024 px and below supports keyboard traversal, Escape, outside dismissal and focus restoration on resize; navigation and language links remain usable without JavaScript. Browser checks use local servers. When a sibling brand checkout is present, they also check full-label theme switching in both languages. Set `CAVE_BROWSER_PATH` only for a non-default Chromium executable.
 
 ### Publication and hosting
 
-The npm packages are marked `private: true`; Flutter uses `publish_to: none`. Registry names and publisher ownership must be confirmed before a separately authorized release. Package versions and release tags are unchanged by this documentation update.
+The npm packages are marked `private: true`; Flutter uses `publish_to: none`. Registry names and publisher ownership must be confirmed before a separately authorized release. Package versions remain `0.1.0-alpha.1`; the website beta is versioned separately.
 
 The checked-in CI workflow validates both platforms and has no package publication, release upload or hosting deployment steps. It is disabled at the time of this documentation review; this change does not enable it.
 
-The Firebase project and Hosting site are `cave-design-system`, with `dist/` as the hosted directory and `design.cave.technology` as the custom domain. Deployment remains paused and requires separate owner approval. Local templates and archives do not establish what revision is deployed.
+The Firebase project and Hosting site are `cave-design-system`, with `dist/` as the hosted directory and `design.cave.technology` as the custom domain. The beta deployment is held until the exact candidate has been reported to the owner in advance. See [release procedure](docs/RELEASING.md) and [current status](docs/STATUS.md). Local templates and archives do not establish what revision is deployed.
 
 </details>
 

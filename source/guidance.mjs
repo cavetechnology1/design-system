@@ -9,7 +9,7 @@ Primary button text has 5.6:1 contrast in Light, 9.6:1 in Dark and 5.1:1 in Blac
 On the raw palette, plain teal is 3.1:1 on paper and 3.3:1 on white, so use it for fills, icons and large graphics and use \`accent-text\` for text. Slate is about 2:1 and mint 1.7:1 on light surfaces, so keep them decorative. \`border\` is a divider; the edge of an input uses \`border-strong\`, which passes 3:1 in every theme.
 
 Change tokens in \`source/tokens.json\` and regenerate all platforms. A custom brand theme can override CSS variables on its root or supply a \`CaveColors\` extension in Flutter. Check contrast again after customization.`,
-  typography: `Poppins is the optional English font and Almarai is the optional Arabic font. Packages include system-font fallbacks and make no font-network requests. Download and bundle the open fonts when you want the same typography as this documentation.
+  typography: `IBM Plex Sans is the optional English font and IBM Plex Sans Arabic is the optional Arabic font. Packages include system-font fallbacks and make no font-network requests. Download and bundle the open fonts when you want the same typography as this documentation.
 
 Use the locale to choose typography, and the direction to arrange the interface. Arabic text needs appropriate line height and must not receive letter spacing that breaks joined letters. Allow labels and headings to wrap and support larger system text sizes.
 
@@ -37,7 +37,7 @@ Use semantic tokens rather than hard-coded colours. Scope custom CSS variables t
 
 ## Evaluation status
 
-This working tree is unreleased. Archives are local evaluation files; package publication and deployment are paused. Pin the version and review the changelog before upgrading. Theme and locale switches act at runtime; package updates remain explicit versioned releases.
+Packages remain alpha evaluation builds. Registry publication is paused. Website releases are tracked separately; consult the repository release notes for the deployed revision. Pin the version and review the changelog before upgrading. Theme and locale switches act at runtime; package updates remain explicit versioned releases.
 
 Code in the packages is MIT licensed. Open fonts retain their own SIL Open Font License notices. Cave brand assets have separate terms and are not included in these packages.`,
  },
@@ -51,7 +51,7 @@ Code in the packages is MIT licensed. Open fonts retain their own SIL Open Font 
 في اللوحة الأساسية، تباين الفيروزي العادي 3.1:1 على الورقي و3.3:1 على الأبيض، لذا استخدمه للتعبئة والأيقونات والرسوم الكبيرة واستخدم \`accent-text\` للنص. تباين الرمادي المزرق نحو 2:1 والنعناعي 1.7:1 على الأسطح الفاتحة، فأبقِهما للزينة فقط. \`border\` للفواصل؛ أما حدّ حقل الإدخال فيستخدم \`border-strong\` الذي يحقق 3:1 في كل المظاهر.
 
 عدّل الرموز في \`source/tokens.json\` ثم أعد توليد ملفات جميع المنصات. يمكن تخصيص متغيرات CSS على جذر التطبيق أو تمرير امتداد \`CaveColors\` في Flutter. افحص التباين بعد التخصيص.`,
-  typography: `Poppins هو الخط الإنجليزي الاختياري وAlmarai هو الخط العربي الاختياري. تتضمن الحزم بدائل من خطوط النظام ولا تطلب الخطوط من الشبكة. نزّل الخطوط المفتوحة وضمّنها للحصول على خطوط هذا التوثيق.
+  typography: `IBM Plex Sans هو الخط الإنجليزي الاختياري وIBM Plex Sans Arabic هو الخط العربي الاختياري. تتضمن الحزم بدائل من خطوط النظام ولا تطلب الخطوط من الشبكة. نزّل الخطوط المفتوحة وضمّنها للحصول على خطوط هذا التوثيق.
 
 اختر الخط بحسب اللغة ورتّب الواجهة بحسب اتجاه القراءة. يحتاج النص العربي إلى ارتفاع سطر مناسب ويجب ألا تطبّق عليه تباعد أحرف يقطع اتصالها. اسمح بالتفاف العناوين والنصوص وادعم تكبير الخط في النظام.
 
@@ -79,7 +79,7 @@ Code in the packages is MIT licensed. Open fonts retain their own SIL Open Font 
 
 ## حالة التقييم
 
-هذه نسخة عمل غير منشورة. الأرشيفات للتقييم المحلي فقط؛ نشر الحزم والمواقع متوقف حاليًا. ثبّت رقم الإصدار وراجع سجل التغييرات قبل الترقية. تعمل مفاتيح المظهر واللغة أثناء التشغيل، بينما تبقى تحديثات الحزمة إصدارات صريحة.
+الحزم نسخ ألفا للتقييم، ونشرها في سجلات الحزم متوقف. تُتابع إصدارات الموقع بشكل منفصل؛ راجع ملاحظات الإصدار في المستودع لمعرفة النسخة المنشورة. ثبّت رقم الإصدار وراجع سجل التغييرات قبل الترقية. تعمل مفاتيح المظهر واللغة أثناء التشغيل، بينما تبقى تحديثات الحزمة إصدارات صريحة.
 
 شيفرة الحزم مرخّصة بترخيص MIT. تحتفظ الخطوط المفتوحة بإشعارات ترخيص SIL الخاص بها. لأصول هوية كهف شروط منفصلة وهي غير مضمنة في هذه الحزم.`,
  }

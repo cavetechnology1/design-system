@@ -18,7 +18,7 @@ const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(ROOT, 'source');
 const OUT = path.join(ROOT, 'dist');
 
-const OPEN_FONT_FAMILIES = ['Poppins', 'Almarai'];
+const OPEN_FONT_FAMILIES = ['Cave UI Latin', 'Cave UI Arabic'];
 
 const read = (...p) => readFile(path.join(SRC, ...p), 'utf8');
 const exists = async (p) => stat(p).then(() => true, () => false);
@@ -74,7 +74,7 @@ export async function build() {
   await mkdir(path.join(OUT,'downloads'),{recursive:true});
   for (const artifact of artifacts) await cp(path.join(ROOT,'.artifacts',artifact.file),path.join(OUT,'downloads',artifact.file));
   await writeOut('downloads/LICENSE.txt',await readFile(path.join(ROOT,'packages/LICENSE'),'utf8'));
-  for (const family of ['poppins','almarai']) await writeOut(`assets/fonts/${family}-OFL.txt`,await read('fonts',`${family}-OFL.txt`));
+  for (const family of ['plex-sans','plex-sans-arabic']) await writeOut(`assets/fonts/${family}-LICENSE.txt`,await read('fonts',`${family}-LICENSE.txt`));
   // Only open fonts with their licence notices are served.
   const servedFonts = present.filter((f) => OPEN_FONT_FAMILIES.includes(f.family));
   for (const f of servedFonts) await cp(path.join(SRC, f.file), path.join(OUT, 'assets', f.file));

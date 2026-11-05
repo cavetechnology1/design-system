@@ -10,11 +10,23 @@ dependencies:
 flutter:
   uses-material-design: true
   fonts:
-    - family: Poppins
+    - family: Cave UI Latin
       fonts:
-        - asset: fonts/Poppins-Regular.ttf
-    - family: Almarai
+        - asset: fonts/IBMPlexSans-Regular.ttf
+          weight: 400
+        - asset: fonts/IBMPlexSans-Medium.ttf
+          weight: 500
+        - asset: fonts/IBMPlexSans-SemiBold.ttf
+          weight: 600
+        - asset: fonts/IBMPlexSans-Bold.ttf
+          weight: 700
+    - family: Cave UI Arabic
       fonts:
-        - asset: fonts/Almarai-Regular.ttf
-        - asset: fonts/Almarai-Bold.ttf
+        - asset: fonts/IBMPlexSansArabic-Regular.ttf
+          weight: 400
+        - asset: fonts/IBMPlexSansArabic-Medium.ttf
+          weight: 500
+        - asset: fonts/IBMPlexSansArabic-SemiBold.ttf
+          weight: 600
+        - asset: fonts/IBMPlexSansArabic-Bold.ttf
           weight: 700

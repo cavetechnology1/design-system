@@ -93,14 +93,14 @@ const ALPHABET = {
   'ar-display': 'أ ب ت ث ج ح خ د ذ ر ز ٠١٢٣٤٥٦٧٨٩',
   'ar-text': 'أ ب ت ث ج ح خ د ذ ر ز ٠١٢٣٤٥٦٧٨٩',
 };
-const FAMILY_NAME = { display: 'Poppins', sans: 'Poppins', 'ar-display': 'Almarai Light', 'ar-text': 'Almarai' };
+const FAMILY_NAME = { display: 'IBM Plex Sans', sans: 'IBM Plex Sans', 'ar-display': 'IBM Plex Sans Arabic', 'ar-text': 'IBM Plex Sans Arabic' };
 
 export function typographyPage(lang, d) {
   const t = STR[lang].type;
   const fam = Object.keys(d.tokens.type.families)
     .map((k) => {
       const rtl = k.startsWith('ar');
-      return `<div class="cv-card"><b>--font-${esc(k)}</b><p class="big" style="font-family:var(--font-${k});${k === 'ar-display' ? 'font-weight:300;' : ''}"${rtl ? ' dir="rtl" lang="ar"' : ''}>${esc(FAMILY_NAME[k])}</p><p class="alpha" style="font-family:var(--font-${k})"${rtl ? ' dir="rtl" lang="ar"' : ''}>${esc(ALPHABET[k])}</p></div>`;
+      return `<div class="cv-card"><b>--font-${esc(k)}</b><p class="big" style="font-family:var(--font-${k});font-weight:400;"${rtl ? ' dir="rtl" lang="ar"' : ''}>${esc(FAMILY_NAME[k])}</p><p class="alpha" style="font-family:var(--font-${k})"${rtl ? ' dir="rtl" lang="ar"' : ''}>${esc(ALPHABET[k])}</p></div>`;
     })
     .join('');
   const groups = d.tokens.type.groups
@@ -211,7 +211,7 @@ export function downloadsPage(lang, d) {
   return `${head(lang, STR[lang].navBrand, t.title, t.lead)}
 <section id="packages">${installContent(lang,d.version)}<p><a href="/downloads/LICENSE.txt">MIT License</a></p></section>
 <section id="code"><h2>${esc(t.codeTitle)}</h2>${table(code)}</section>
-<section id="fonts"><h2>${esc(t.fontsTitle)}</h2><p class="sec-lead">${esc(t.fontsNote)}</p>${table(fonts)}<p><a href="/assets/fonts/poppins-OFL.txt">Poppins — SIL OFL</a> · <a href="/assets/fonts/almarai-OFL.txt">Almarai — SIL OFL</a></p></section>
+<section id="fonts"><h2>${esc(t.fontsTitle)}</h2><p class="sec-lead">${esc(t.fontsNote)}</p>${table(fonts)}<p><a href="/assets/fonts/plex-sans-LICENSE.txt">IBM Plex Sans — SIL OFL</a> · <a href="/assets/fonts/plex-sans-arabic-LICENSE.txt">IBM Plex Sans Arabic — SIL OFL</a></p></section>
 <section id="brand"><h2>${esc(t.logosTitle)}</h2><p class="sec-lead">${esc(t.logosNote)}</p><a class="cv-btn cv-btn--secondary" href="${STR[lang].brandSiteUrl}">${esc(t.logosLink)}</a></section>`;
 }
 

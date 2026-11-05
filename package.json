@@ -1,6 +1,6 @@
 {
   "name": "design.cave.technology",
-  "version": "2.0.0",
+  "version": "2.1.0-beta.1",
   "private": true,
   "type": "module",
   "description": "Cave design system website, generated from the design system source files",
@@ -17,7 +17,9 @@
     "build:flutter": "node scripts/build-flutter.mjs",
     "test:browser:all": "CAVE_BROWSERS=chromium,firefox,webkit node tests/browser.mjs",
     "test:templates": "node tests/templates-consumer.mjs",
-    "test:flutter:browser": "CAVE_BROWSERS=chromium,firefox,webkit node tests/flutter-browser.mjs"
+    "test:flutter:browser": "CAVE_BROWSERS=chromium,firefox,webkit node tests/flutter-browser.mjs",
+    "test:navigation": "node tests/navigation.mjs",
+    "preview:readme": "node scripts/readme-preview.mjs"
   },
   "dependencies": {
     "marked": "^15.0.12"

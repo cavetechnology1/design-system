@@ -48,7 +48,7 @@ export function buildFontsCss(tokens, { base = '/assets/fonts/', families = null
     .filter((f) => !families || families.includes(f.family))
     .map((f) => {
       const file = f.file.replace(/^fonts\//, '');
-      const fmt = file.endsWith('.otf') ? 'opentype' : 'truetype';
+      const fmt = file.endsWith('.woff2') ? 'woff2' : file.endsWith('.otf') ? 'opentype' : 'truetype';
       return `@font-face{font-family:"${f.family}";src:url("${base}${file}") format("${fmt}");font-weight:${f.weight};font-style:${f.style || 'normal'};font-display:swap}`;
     })
     .join('\n') + '\n';

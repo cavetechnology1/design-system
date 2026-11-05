@@ -55,7 +55,40 @@
     try{await navigator.clipboard.writeText(text);status.textContent=button.dataset.copiedLabel;button.textContent=button.dataset.copiedLabel;setTimeout(()=>{button.textContent=button.dataset.copyLabel;},1600);}catch{status.textContent=root.lang==='ar'?'حدد الشيفرة لنسخها يدويًا.':'Select the code to copy it manually.';}
   }));
   const btn=document.getElementById('menu-btn'),side=document.getElementById('side');
-  btn?.addEventListener('click',()=>{const open=side.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));});
+  const controls=document.getElementById('site-controls');
+  const compact=matchMedia('(max-width: 1024px)');
+  const menuOpen=()=>root.dataset.navigation==='open';
+  function closeMenu(restore=false) {
+    root.dataset.navigation='closed';btn?.setAttribute('aria-expanded','false');
+    if(restore)btn?.focus();
+  }
+  root.dataset.navigation='closed';
+  btn?.addEventListener('click',()=>{
+    if(menuOpen())closeMenu();
+    else {root.dataset.navigation='open';btn.setAttribute('aria-expanded','true');}
+  });
+  // A disclosure, not a modal: normal Tab order continues into the page.
+  const inMenu=target=>btn?.contains(target)||controls?.contains(target)||side?.contains(target);
+  let lastFocused=null;
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&menuOpen()) {event.preventDefault();closeMenu(true);}
+  });
+  document.addEventListener('pointerdown',event=>{
+    if(!inMenu(event.target)) {lastFocused=null;if(compact.matches&&menuOpen())closeMenu();}
+  });
+  document.addEventListener('focusin',event=>{
+    lastFocused=inMenu(event.target)?event.target:null;
+    if(compact.matches&&menuOpen()&&!inMenu(event.target))closeMenu();
+  });
+  compact.addEventListener('change',()=>{
+    // CSS may hide the focused control before matchMedia's event is delivered.
+    const active=document.activeElement===document.body?lastFocused:document.activeElement;
+    const moveFocus=inMenu(active)&&active!==btn;
+    closeMenu(compact.matches&&moveFocus);
+    if(!compact.matches&&active===btn)controls?.querySelector('select,a')?.focus();
+  });
+  // The skip link also dismisses the panel without hiding its focus target.
+  document.querySelector('.skip')?.addEventListener('click',()=>{closeMenu();document.getElementById('main')?.focus();});
   window.addEventListener('message',event=>{
     if(event.origin!==location.origin||event.data?.type!=='cave:preview-size')return;
     const frame=frames.find(frame=>frame.contentWindow===event.source);

@@ -1,0 +1,10 @@
+name: Feature request
+description: Suggest a shared foundation, component or documentation improvement.
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: User need and proposed behavior
+      description: Describe the task, affected platform/language, and an example. Mention any existing workaround.
+    validations:
+      required: true

@@ -1,33 +1,11 @@
-# Unreleased local work
+# Website beta candidate
 
-The owner has requested no releases. Do not publish packages, create release tags,
-push source, upload release artifacts or deploy either site as part of this work.
-The existing production sites are unchanged. Local build outputs and template ZIPs
-are review artifacts, not new releases. Package versions remain unchanged.
+The current authorized work prepares the documentation website beta `v2.1.0-beta.1`, commits tested source to main and prepares a GitHub release. Deployment and public beta publication are held until the exact candidate has been reported to the owner in advance. See [release procedure](RELEASING.md).
 
-The npm packages are marked private; Flutter uses `publish_to: none`. CI validates
-source without publication or deployment. Publishing configuration and verified
-publisher/account setup are deliberately deferred until explicitly authorized.
+The earlier no-push/no-release instruction recorded in this file applied to the October local evaluation work. The current request supersedes it for source improvements and release preparation. No registry publication is authorized: npm packages retain `private: true`, Flutter retains `publish_to: none`, and package versions stay `0.1.0-alpha.1`.
 
-## Implementation scope
+Only the design site and its repository are in scope. The approved brand checkout is a read-only reference. Other products and existing local checkouts remain untouched. CI stays disabled. Hosting configuration, IAM, security settings, billing and ownership are unchanged.
 
-Only design.cave.technology and brand.cave.technology are modified. The Flutter
-gallery is part of the existing design package's example directory. Templates
-contain sample records and local interactions; no authentication or API service is
-connected. Cave Shops, POS, the company website and other applications are untouched.
+The verified Firebase project and site are `cave-design-system`; custom domain `design.cave.technology`. Before this work the live version was `63bc6098fb26b0cb`, released 2026-10-30 at 05:05:22.593 UTC. Live HTML uses the existing English/Arabic canonical routes. It has not been replaced by this candidate.
 
-## Local review
-
-1. `npm ci`
-2. `npm run build`
-3. `npm run build:flutter` (local compilation; does not publish)
-4. `npm run serve`
-
-The Flutter preview loads only after clicking its load button. A normal site build
-includes the last local `.artifacts/flutter-preview` if present. Rebuild Flutter
-after changing Dart examples. The CI order builds Flutter after the site to avoid
-stale gallery output.
-
-Documentation: `/templates`, `/customization`, `/components/button` in English;
-add `/ar` for Arabic. Visual review pages are generated in `.artifacts/` by browser
-checks. Serve the brand checkout separately to inspect its tools.
+The Flutter gallery loads on demand. A normal site build copies `.artifacts/flutter-preview` if present, so build Flutter before packaging the final website. Templates contain sample records and local interactions; no service or authentication is connected.

@@ -20,9 +20,12 @@ Existing createCave / CaveController locale, theme and direction methods remain.
 - Shared preview URLs encode locale/theme/direction/numerals and applicable
   component props. Documentation language stays independent of preview language.
 
-The version remains 0.1.0-alpha.1 for local evaluation. These notes describe
-unpublished changes and must not be presented as a new public release.
+The version remains 0.1.0-alpha.1 for local evaluation. The website beta snapshots these evaluation packages; registry publication remains paused.
 
 - `openDialog(dialog, trigger)` accepts an explicit return-focus element so pointer
   activation restores focus consistently in WebKit. Keyboard callers may omit it
   when the trigger is already focused.
+
+## Plex website beta
+
+The default family tokens now use `Cave UI Latin` (IBM Plex Sans) and `Cave UI Arabic` (IBM Plex Sans Arabic), with system fallbacks. Bundle the local WOFF2 files and OFL notices to match the documentation; Flutter examples bundle the original IBM TTFs under the same family aliases. Existing font overrides remain supported. Text metrics change: review wrapping and fixed-height controls in consuming applications. Regular is 400; Medium, SemiBold and Bold are 500/600/700. Legacy source fonts are retained for history and are no longer served.

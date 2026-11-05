@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a documentation, component, layout or language problem.
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened?
+      description: Include the page or component, expected behavior and steps to reproduce. Remove personal data from screenshots and examples.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser or Flutter version, device/viewport, English or Arabic, theme and website/package version.
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Interaction or accessibility details
+      description: If relevant, include keyboard steps, screen reader and version, focus behavior or text scaling.

@@ -7,12 +7,27 @@ import {catalog} from '../source/catalog.mjs';
 import { build } from '../build.mjs';
 import { makeResolver, buildTokensCss, CONTRAST_PAIRS, THEMES } from '../src/tokens.mjs';
 import { parseColor, contrast } from '../src/color.mjs';
+import {createHash} from 'node:crypto';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
 const tokens = JSON.parse(await readFile(path.join(ROOT, 'source', 'tokens.json'), 'utf8'));
 
 before(async () => { await build(); });
+
+test('Plex font sources, weights, licences and WOFF2 delivery remain intact',async()=>{
+  const manifest=JSON.parse(await readFile(path.join(ROOT,'source/fonts/manifest.json'),'utf8'));
+  assert.equal(manifest.length,8);
+  for(const face of manifest) {
+    const original=await readFile(path.join(ROOT,'source/fonts/plex-native',face.source));
+    assert.equal(createHash('sha256').update(original).digest('hex'),face.sourceSha256);
+    const delivered=await readFile(path.join(DIST,'assets/fonts',face.file));
+    assert.equal(delivered.toString('ascii',0,4),'wOF2');
+    assert.equal(delivered.length,face.bytes);
+    assert.ok(tokens.type.fonts.some(f=>f.family===face.family&&Number(f.weight)===face.weight));
+  }
+  for(const family of ['plex-sans','plex-sans-arabic'])assert.match(await readFile(path.join(DIST,`assets/fonts/${family}-LICENSE.txt`),'utf8'),/SIL OPEN FONT LICENSE/i);
+});
 
 const walk = async (dir) => {
   const out = [];

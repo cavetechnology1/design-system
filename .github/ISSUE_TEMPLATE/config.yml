@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Cave UI documentation
+    url: https://design.cave.technology
+    about: Browse components, examples and installation guidance.
+  - name: Cave Brand
+    url: https://brand.cave.technology
+    about: Find approved brand assets and usage terms.

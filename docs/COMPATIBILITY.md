@@ -1,4 +1,4 @@
-# Compatibility — unreleased working tree
+# Compatibility — website beta / alpha packages
 
 | Area | Contract |
 | --- | --- |
@@ -10,10 +10,9 @@
 | Digits | auto defaults to Latin for English and Arabic-Indic for Arabic. latn/arab override survives locale changes. IDs, phone numbers and emails retain their own direction. |
 | Number formatting | Web delegates to Intl, including currency/calendar options. Flutter's dependency-free decimal formatter handles finite values below 1e21 and 0–6 fixed decimal places. It does not implement arbitrary international currency rules. |
 | Date formatting | Web Intl; Flutter SDK MaterialLocalizations plus digit shaping. Calendar conversion is application-owned. |
-| Fonts | Optional local Poppins/Almarai with OFL notices. No mandatory font download by package code. Hero is proprietary and never served or packaged: `--font-display` resolves to Poppins here, and a product with its own Hero licence puts Hero first in its own override. |
+| Fonts | Optional local IBM Plex Sans / IBM Plex Sans Arabic with OFL notices; Web subsets use the internal family names Cave UI Latin / Cave UI Arabic. Package code makes no font requests. Existing applications may override the family tokens. Hero and Blue Ocean remain excluded. |
 | Accessibility | Automated semantics/contrast/interaction tests plus Flutter text-scaling tests. Human assistive-technology review remains separate. |
 
 Documentation currently describes the working tree; it is not a versioned stable
 API promise. When publication is authorized, snapshot docs by package version and
-retain this table and migration notes for each supported version. No version or
-release tag was created for this work.
+retain this table and migration notes for each supported version. Website beta versioning is separate from the unchanged alpha package version.

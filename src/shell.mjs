@@ -104,23 +104,24 @@ ${route === '/404' ? '' : `<link rel="alternate" hreflang="x-default" href="${OR
 <link rel="stylesheet" href="/assets/tokens.css">
 <link rel="stylesheet" href="/assets/components.css">
 <link rel="stylesheet" href="/assets/site.css">
+<noscript><style>.top__ctl :is(label,select){display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">${esc(t.skip)}</a>
 <header class="top"><div class="top__in">
-<a class="brand" href="${href(lang, '/')}"><img class="logo-light" src="/assets/logos/cave-symbol-color.svg" alt=""><img class="logo-dark" src="/assets/logos/cave-symbol-white.svg" alt=""><span>${esc(t.siteName)}</span></a>
+<a class="brand" href="${href(lang, '/')}"><img class="logo-light" src="/assets/logos/cave-symbol-color.svg" alt="" width="32" height="32"><img class="logo-dark" src="/assets/logos/cave-symbol-white.svg" alt="" width="32" height="32"><span>${esc(t.siteName)}</span></a>
 <span class="top__space"></span>
-<div class="top__ctl">
+<button class="cv-btn cv-btn--secondary cv-btn--sm menu-btn" id="menu-btn" disabled aria-expanded="false" aria-controls="site-controls side">${esc(t.menu)}</button>
+<div class="top__ctl" id="site-controls">
 <label class="sr-only" for="platform-select">${lang === 'ar' ? 'المنصة' : 'Platform'}</label>
 <select id="platform-select" disabled class="cv-input" aria-label="${lang === 'ar' ? 'المنصة' : 'Platform'}"><option value="web">${lang === 'ar' ? 'الويب' : 'Web'}</option><option value="flutter">Flutter</option></select>
 <label class="sr-only" for="theme-select">${esc(t.theme)}</label>
 <select id="theme-select" disabled class="cv-input" aria-label="${esc(t.theme)}">${themeOption('system', t.themeSystem)}${themeOption('light', t.themeLight)}${themeOption('dark', t.themeDark)}${themeOption('black', t.themeBlack)}</select>
 <a class="lang" href="${href(other, route === '/404' ? '/' : route)}" hreflang="${other}" lang="${other}">${esc(t.otherLang)}</a>
-<button class="cv-btn cv-btn--secondary cv-btn--sm menu-btn" id="menu-btn" disabled aria-expanded="false" aria-controls="side">${esc(t.menu)}</button>
 </div></div></header>
 <div class="frame">
 <aside class="side" id="side">${renderNav(lang, ctx.withRoute(route))}</aside>
-<main class="main" id="main"><div class="page">
+<main class="main" id="main" tabindex="-1"><div class="page">
 ${page.body.replaceAll('<pre ','<pre tabindex="0" ')}
 </div></main>
 </div>
